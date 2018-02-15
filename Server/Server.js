@@ -10,7 +10,7 @@ var mongoose = require('../Db/Db');
 var bcrypt = require('bcrypt');
 var jwt=require('jsonwebtoken');
 const LocalStrategy = require('passport-local').Strategy;
-var token='';
+global.token='';
 var app=express();
 app.use(passport.initialize());
 app.use(bodyparser.json());

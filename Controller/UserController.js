@@ -21,11 +21,22 @@ exports.insert =(req,res)=> {
 exports.failure=(req,res)=>{
     //res.render("Reg");
     console.log("failed");
-    res.json("Login Failed");
+    res.json("failed");
 };
 
 exports.success=(req,res)=>{
     //res.render("Reg");
     console.log('success');
-    //res.json(token);
+    res.json(token);
 };
+exports.nullifyToken=(req,res)=>{
+    TicketUsers.findOneAndUpdate({token:token},{
+        $set:{
+            token:''
+        }
+    }).then((docs)=>{
+        console.log("nulled token")
+    }).catch((err)=> {
+        console.log(err);
+    })
+}

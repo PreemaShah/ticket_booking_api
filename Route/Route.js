@@ -8,5 +8,5 @@ const movieController=require('../Controller/MovieController');
     app.post("/users",userController.insert);
     app.get("/failure",userController.failure);
     app.get("/success",userController.success);
-
+    app.patch("/deleteToken",authenticate,userController.nullifyToken);
 };
