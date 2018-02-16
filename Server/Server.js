@@ -51,11 +51,12 @@ passport.use(new LocalStrategy({
                 }
                 else
                 {
-                    token = jwt.sign({username:user1.email,password:user1.password},'TICKETBOOKINGAPI');
+                    token = jwt.sign({email:user1.email,password:user1.password},'TICKETBOOKINGAPI');
+                    console.log(token);
 
-                    TicketUsers.findOneAndUpdate({username:user1.email,password:user1.password},{
+                    TicketUsers.findOneAndUpdate({email:user1.email,password:user1.password},{
                         $set:{
-                            token:token
+                            token1:token
                         }
                     }).then((docs)=>{
                         return done(null,true)

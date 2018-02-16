@@ -30,13 +30,21 @@ exports.success=(req,res)=>{
     res.json(token);
 };
 exports.nullifyToken=(req,res)=>{
-    TicketUsers.findOneAndUpdate({token:token},{
+    TicketUsers.findOneAndUpdate({token1:token},{
         $set:{
-            token:''
+            token1:''
         }
     }).then((docs)=>{
-        console.log("nulled token")
+        console.log("nulled token"+docs);
+        res.json('1');
     }).catch((err)=> {
         console.log(err);
     })
+}
+exports.getUserDetail=(req,res)=>{
+    TicketUsers.find().then((detail)=>{
+        res.send(detail);
+    },(err)=>{
+        res.status(400).send(err);
+    });
 }

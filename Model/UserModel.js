@@ -7,7 +7,6 @@ let TicketUser = mongoose.Schema({
     },
     email:{
         type:String,
-
         trim:true
     },
     password:{
@@ -22,7 +21,7 @@ let TicketUser = mongoose.Schema({
             type:String,
             trim:true
         },
-    token:{
+    token1:{
         type:String,
         trim:true
     }
