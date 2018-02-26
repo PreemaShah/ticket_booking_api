@@ -12,7 +12,7 @@ exports.insert =(req,res)=> {
         UserId:req.body.UserId
     });
     user1.save().then((doc) => {
-        res.json("success");
+        res.json(doc);
     }, (err) => {
         res.json("fail");
     })
