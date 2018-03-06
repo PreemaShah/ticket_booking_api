@@ -34,4 +34,15 @@ exports.delete1=(req,res)=>{
     }).catch((ex)=>{
         res.status(401).send(ex);
     })
-}
+};
+exports.getOne=(req,res)=>{
+    var qur= req.params
+    var _id1=qur.id
+    console.log(_id1);
+    Theatre.find({CityId:_id1}).then((user)=>{
+        console.log(user);
+        res.json(user);
+    }).catch((err)=>{
+        console.log(err);
+    })
+};

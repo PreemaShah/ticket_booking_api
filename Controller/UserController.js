@@ -21,13 +21,14 @@ exports.insert =(req,res)=> {
 exports.failure=(req,res)=>{
     //res.render("Reg");
     console.log("failed");
-    res.json("failed");
+    res.status(404).json("failed");
 };
 
 exports.success=(req,res)=>{
     //res.render("Reg");
     console.log('success');
-    res.json(token);
+    //console.log(document1);
+    res.status(200).json(document1);
 };
 exports.nullifyToken=(req,res)=>{
     TicketUsers.findOneAndUpdate({token1:token},{
@@ -47,4 +48,12 @@ exports.getUserDetail=(req,res)=>{
     },(err)=>{
         res.status(400).send(err);
     });
+}
+
+exports.getLoginUser=(req,res)=>{
+    TicketUsers.find({token1:{$ne:""}}).then((detail)=>{
+        console.log(detail);
+    }).catch((err)=>{
+        console.log(err);
+    })
 }

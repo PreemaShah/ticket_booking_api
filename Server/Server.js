@@ -11,6 +11,7 @@ var bcrypt = require('bcrypt');
 var jwt=require('jsonwebtoken');
 const LocalStrategy = require('passport-local').Strategy;
 global.token='';
+global.document1={};
 var app=express();
 app.use(passport.initialize());
 app.use(bodyparser.json());
@@ -59,6 +60,8 @@ passport.use(new LocalStrategy({
                             token1:token
                         }
                     }).then((docs)=>{
+                        console.log(docs)
+                        document1=docs
                         return done(null,true)
                     }).catch((err)=> {
                         console.log(err);

@@ -12,4 +12,11 @@ exports.insertCity=(req,res)=>{
         res.send(err);
     })
 
-}
+};
+exports.getCity=(req,res)=>{
+    City.find().then((data)=>{
+        res.json(data);
+    }).catch((err)=>{
+        res.json(err);
+    })
+};
