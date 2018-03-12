@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 var authenticate=(req,res,next)=>{
     var token =req.header('x-auth');
-    console.log("inside middleware:"+token)
+    console.log("inside middleware:"+token);
     User.findByToken(token).then((user)=>{
         if(!user)
         {

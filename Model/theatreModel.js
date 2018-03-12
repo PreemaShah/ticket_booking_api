@@ -11,10 +11,11 @@ let TheatreSchema = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:['City']
     },
-    MovieId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:['MovieDetails']
-    }
+  TheatreScreens:{
+        type:Number,
+        trim:true,
+        required:true
+  }
 
 })
 

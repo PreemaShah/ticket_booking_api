@@ -47,7 +47,7 @@ passport.use(new LocalStrategy({
             {
                 if(!bcrypt.compareSync(password,user1.password))
                 {
-                    console.log("In Encrypt")
+                    console.log("In Encrypt");
                     return done(null,false);
                 }
                 else

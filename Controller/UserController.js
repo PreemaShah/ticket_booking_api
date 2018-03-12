@@ -27,8 +27,8 @@ exports.failure=(req,res)=>{
 exports.success=(req,res)=>{
     //res.render("Reg");
     console.log('success');
-    //console.log(document1);
-    res.status(200).json(document1);
+    console.log(document1);
+    res.header('x-auth',token).status(200).json(document1);
 };
 exports.nullifyToken=(req,res)=>{
     TicketUsers.findOneAndUpdate({token1:token},{
@@ -36,12 +36,12 @@ exports.nullifyToken=(req,res)=>{
             token1:''
         }
     }).then((docs)=>{
-        console.log("nulled token"+docs);
-        res.json('1');
+        console.log(docs.token1);
+        res.status(200).json(docs.token1);
     }).catch((err)=> {
         console.log(err);
     })
-}
+};
 exports.getUserDetail=(req,res)=>{
     TicketUsers.find().then((detail)=>{
         res.send(detail);
