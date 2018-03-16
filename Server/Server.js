@@ -52,6 +52,7 @@ passport.use(new LocalStrategy({
                 }
                 else
                 {
+                    console.log("token");
                     token = jwt.sign({email:user1.email,password:user1.password},'TICKETBOOKINGAPI');
                     console.log(token);
 

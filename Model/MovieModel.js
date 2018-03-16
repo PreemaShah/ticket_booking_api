@@ -7,7 +7,6 @@ let MovieDetail=mongoose.model('MovieDetails',{
     },
     Poster:{
         type:String,
-
     },
     Genre:{
         type:String,
@@ -36,7 +35,6 @@ let MovieDetail=mongoose.model('MovieDetails',{
     },
     Description:{
         type:String,
-        required:true,
         trim:true
     }
 

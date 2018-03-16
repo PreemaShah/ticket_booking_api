@@ -36,7 +36,7 @@ exports.delete1=(req,res)=>{
 exports.getOne=(req,res)=>{
     var _id1=req.params.id;
     console.log(_id1);
-    TheatreMovies.findOne({TheatreId:_id1}).then((user)=>{
+    TheatreMovies.find({TheatreId:_id1}).populate('MovieId').then((user)=>{
         console.log(user);
         res.json(user);
     }).catch((err)=>{

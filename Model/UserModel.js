@@ -1,13 +1,17 @@
 var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
-let TicketUser = mongoose.Schema({
+var validators = require('mongoose-validators');
+
+
+var TicketUser = mongoose.Schema({
     Name:{
       type:String,
-        trim:true
+        trim:true,
     },
     email:{
         type:String,
-        trim:true
+        trim:true,
+        validate:validators.isEmail()
     },
     password:{
       type:String,

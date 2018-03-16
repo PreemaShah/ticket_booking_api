@@ -15,7 +15,7 @@ const {authenticate}=require('../MiddleWare/Authenticate');
     app.get("/success",userController.success);
     app.get("/UserDetail",userController.getUserDetail);
     app.get("/loginUser",userController.getLoginUser);
-    app.put("/deleteToken",userController.nullifyToken);
+    app.put("/deleteToken/:token",userController.nullifyToken);
     app.post("/CityInsert",CityController.insertCity);
     app.get("/CityDetail",CityController.getCity);
     app.post("/TheatreInsert",TheatreController.insert);

@@ -5,7 +5,12 @@ exports.insertMovie=(req,res)=>{
     var Detail = new MovieDetail({
         Title : req.body.Title,
         Poster:req.body.Poster,
-        Genre:req.body.Genre
+        Genre:req.body.Genre,
+        Ratings:req.body.Ratings,
+        LeadingActorMale:req.body.LeadingActorMale,
+        LeadingActorFemale:req.body.LeadingActorFemale,
+        Duration:req.body.Duration,
+        Description:req.body.Description
     });
     Detail.save().then((detail)=>{
        res.send(detail);

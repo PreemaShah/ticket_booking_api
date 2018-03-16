@@ -31,7 +31,7 @@ exports.success=(req,res)=>{
     res.header('x-auth',token).status(200).json(document1);
 };
 exports.nullifyToken=(req,res)=>{
-    TicketUsers.findOneAndUpdate({token1:token},{
+    TicketUsers.findOneAndUpdate({token1:req.params.token},{
         $set:{
             token1:''
         }
@@ -56,4 +56,4 @@ exports.getLoginUser=(req,res)=>{
     }).catch((err)=>{
         console.log(err);
     })
-}
+};
