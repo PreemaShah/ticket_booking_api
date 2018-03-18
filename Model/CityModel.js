@@ -10,4 +10,4 @@ var City = mongoose.model('City',cityDetail);
 module.exports=
     {
         City
-}
+    }
