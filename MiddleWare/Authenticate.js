@@ -1,10 +1,11 @@
-const {User} = require('../Model/UserModel');
+const {TicketUsers} = require('../Model/UserModel');
 const jwt = require('jsonwebtoken');
 
 var authenticate=(req,res,next)=>{
     var token =req.header('x-auth');
+    console.log(token);
     console.log("inside middleware:"+token);
-    User.findByToken(token).then((user)=>{
+    TicketUsers.findOne({token1:token}).then((user)=>{
         if(!user)
         {
             return promise.reject()

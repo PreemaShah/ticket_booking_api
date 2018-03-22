@@ -2,12 +2,14 @@ let mongoose = require('mongoose');
 var {bookingDetails} = require('../Model/bookingModel');
 exports.insert=(req,res)=>{
 
-    var booking = new showDetails({
+    var booking = new bookingDetails({
 
         UserId:req.body.UserId,
         ShowId:req.body.ShowId,
         SeatId:req.body.SeatId,
-        BookingDate:req.body.BookingDate
+        BookingDate:req.body.BookingDate,
+        Quantity:req.body.Quantity,
+        TotalPrice:req.body.TotalPrice
 
     });
     booking.save().then((docs)=>{
@@ -18,7 +20,7 @@ exports.insert=(req,res)=>{
 
 };
 exports.getall=(req,res)=>{
-    showDetails.find().populate('MovieTheatreId')
+    bookingDetails.find().populate('MovieTheatreId')
         .then((detail)=>{
             res.send(detail);
         },(err)=>{
@@ -28,7 +30,7 @@ exports.getall=(req,res)=>{
     });
 }
 exports.delete1=(req,res)=>{
-    showDetails.remove({_id: req.params.id}).then((doc)=>{
+    bookingDetails.remove({_id: req.params.id}).then((doc)=>{
         res.status(200).send(doc);
     },(err)=>{
         res.status(404).send(err);
@@ -39,7 +41,7 @@ exports.delete1=(req,res)=>{
 exports.getOne=(req,res)=>{
     var _id1=req.params.id;
     console.log(_id1);
-    showDetails.find({MovieTheatreId:_id1}).then((user)=>{
+    bookingDetails.find({MovieTheatreId:_id1}).then((user)=>{
         console.log(user);
         res.json(user);
     }).catch((err)=>{

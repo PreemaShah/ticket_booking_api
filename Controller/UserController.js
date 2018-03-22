@@ -31,15 +31,20 @@ exports.success=(req,res)=>{
     res.header('x-auth',token).status(200).json(document1);
 };
 exports.nullifyToken=(req,res)=>{
-    TicketUsers.findOneAndUpdate({token1:req.params.token},{
+    console.log("in nullify token");
+    console.log(req.token);
+    TicketUsers.findOneAndUpdate({token1:req.token},{
         $set:{
             token1:''
         }
     }).then((docs)=>{
         console.log(docs.token1);
         res.status(200).json(docs.token1);
-    }).catch((err)=> {
-        console.log(err);
+    },(err)=>{
+        console.log(err)
+        res.status(404).send(err)
+    }).catch((cerr)=> {
+        console.log(cerr);
     })
 };
 exports.getUserDetail=(req,res)=>{
@@ -51,7 +56,9 @@ exports.getUserDetail=(req,res)=>{
 }
 
 exports.getLoginUser=(req,res)=>{
+    console.log("in loginUser");
     TicketUsers.find({token1:{$ne:""}}).then((detail)=>{
+        res.status(200).send(detail);
         console.log(detail);
     }).catch((err)=>{
         console.log(err);

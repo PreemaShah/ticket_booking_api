@@ -20,6 +20,16 @@ let bookingDetailsSchema = mongoose.Schema({
         type:Date,
         trim:true,
         required:true
+    },
+    Quantity:{
+        type:Number,
+        trim:true,
+        required:true
+    },
+    TotalPrice:{
+        type:Number,
+        trim:true,
+        required:true
     }
 
 });

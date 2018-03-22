@@ -38,7 +38,7 @@ exports.delete1=(req,res)=>{
 exports.getOne=(req,res)=>{
     var _id1=req.params.id;
     console.log(_id1);
-    screenDetails.find({TheatreId:_id1}).then((user)=>{
+    screenDetails.findOne({TheatreId:_id1}).then((user)=>{
         console.log(user);
         res.json(user);
     }).catch((err)=>{

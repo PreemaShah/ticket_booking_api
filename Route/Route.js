@@ -23,7 +23,7 @@ const seatController = require('../Controller/seatController');
     app.get("/success",userController.success);
     app.get("/users/getAll",userController.getUserDetail);
     app.get("/users/loginUser",userController.getLoginUser);
-    app.put("/users/deleteToken/:token",userController.nullifyToken);
+    app.put("/users/deleteToken",authenticate,userController.nullifyToken);
 
     //city route
     app.post("/city/insert",CityController.insertCity);
@@ -44,7 +44,7 @@ const seatController = require('../Controller/seatController');
     app.get("/theatreMovie/getOne/:id",MovieTheatreController.getOne);
 
     //show route
-    app.post("/show/insert",showController.insert);
+    app.post(" ",showController.insert);
     app.get("/show/getAll",showController.getall);
     app.get("/show/getOne/:id",showController.getOne);
 
